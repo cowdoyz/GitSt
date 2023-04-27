@@ -39,7 +39,7 @@ public class bbsPostServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
+		request.setCharacterEncoding("EUC-KR");
 		String title = request.getParameter("TITLE");
 		String content = request.getParameter("CONTENT");
 		HttpSession session = request.getSession();
