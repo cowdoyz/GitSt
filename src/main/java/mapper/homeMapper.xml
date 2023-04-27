@@ -5,4 +5,10 @@
 <select id="getPwd" parameterType="String" resultType="String">
 select pwd from UserInfo where id = #{id}
 </select>
+<select id="getMax" resultType="Integer">
+select max(no) from BBS_tbl
+</select>
+<insert id="InsertBBS" parameterType="DTO.BBS">
+insert into BBS_tbl values(#{no},#{title},#{content},#{id},sysdate)
+</insert>
 </mapper>

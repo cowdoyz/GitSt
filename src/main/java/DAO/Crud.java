@@ -7,8 +7,47 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import DTO.BBS;
+
 public class Crud {
 	private final String name="mapper.home";
+
+	public Integer InsetBBS(BBS bbs)
+	{
+		SqlSession ss = this.getSession();
+		Integer result = -1;
+		try
+		{
+			String sql = name+".InsertBBS";
+			result = ss.insert(sql, bbs);
+			if(result > 0) ss.commit();
+			else ss.rollback();
+		}
+		finally
+		{
+			ss.close();
+		}
+		return result;
+	}
+	
+	
+	public Integer getMaxNo()
+	{
+		SqlSession ss = this.getSession();
+		Integer max = 0;
+		try 
+		{
+			String sql = name+".getMax";
+			max = ss.selectOne(sql);
+			if(max == null) max = 0;
+		}
+		catch (Exception e) 
+		{
+			ss.close();
+		}
+		return max;
+		
+	}
 	
 	public String getPwd(String id) 
 	{

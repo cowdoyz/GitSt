@@ -1,0 +1,24 @@
+@charset "UTF-8";
+table {
+	width:90%; height:80%; border:1px solid blue;
+	border-collapse: collapse;
+	margin-left: 20px; margin-right:20px;
+	background-color: skyblue;
+}
+#menu {
+	margin-top:10px; margin-bottom:10px;
+	margin-left:10px; margin-right:10px;
+	border:1px dashed green;
+	background-color: orange;
+}
+.main{
+	width:40%; height:300px; border:1px solid red;
+}
+#content{
+	background-color:wheat;
+}
+#login {
+	margin-left:10px; margin-top:10px;
+	width:90%; border:1px dashed red;
+	background-color:pink;
+}

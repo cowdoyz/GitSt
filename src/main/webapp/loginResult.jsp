@@ -7,6 +7,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<link type="text/css"  rel="styleSheet" href="CSS/css.css"> 
 </head>
 <body>
 <div align="center">
