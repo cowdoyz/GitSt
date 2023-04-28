@@ -1,6 +1,7 @@
 package DAO;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -11,6 +12,22 @@ import DTO.BBS;
 
 public class Crud {
 	private final String name="mapper.home";
+	
+	public ArrayList getBBS()
+	{
+		SqlSession ss = this.getSession();
+		ArrayList list = null;
+		try
+		{
+			String sql = name+".getBBS";
+			list = (ArrayList)ss.selectList(sql);			
+		}
+		finally
+		{
+			ss.close();
+		}
+		return list;
+	}
 
 	public Integer InsetBBS(BBS bbs)
 	{

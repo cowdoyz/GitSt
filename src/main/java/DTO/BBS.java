@@ -6,7 +6,15 @@ public class BBS
 	private String title;
 	private String content;
 	private String id;
+	private String date;
 	
+	
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
 	public Integer getNo()
 	{
 		return no;
