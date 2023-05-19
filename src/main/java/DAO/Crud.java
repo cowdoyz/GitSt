@@ -9,9 +9,73 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import DTO.BBS;
+import DTO.User;
 
 public class Crud {
 	private final String name="mapper.home";
+	
+	public boolean InsertId(User u)
+	{
+		SqlSession ss = this.getSession();
+		boolean result = false;
+		try {
+			String sql = name+".InsertId";
+			ss.insert(sql, u);
+			result = true;
+			if(result)ss.commit();
+			else ss.rollback();
+		}finally {
+			ss.close();
+		}
+		return result;
+	}
+	
+	public Integer bbsUpdate(BBS bbs)
+	{
+		SqlSession ss = this.getSession();
+		Integer result = -1;
+		try {
+			String sql=name+".bbsUpdate";
+			result = ss.update(sql, bbs);
+			if(result > 0) ss.commit();
+			else ss.rollback();
+		}finally {
+			ss.close();
+		}
+		return result;
+	}
+	
+	public Integer bbsdelete(Integer n)
+	{
+		SqlSession ss = this.getSession();
+		Integer result = -1;
+		try {
+			String sql=name+".bbsdelete";
+			result = ss.delete(sql, n);
+			if(result > 0) ss.commit();
+			else ss.rollback();
+		}finally {
+			ss.close();
+		}
+		return result;
+	}
+	
+	public BBS bbsDetail(Integer n)
+	{
+		SqlSession ss = this.getSession();
+		BBS list = null;
+		try
+		{
+			String sql = name+".bbsDetail";
+			list = ss.selectOne(sql, n);			
+		}
+		finally
+		{
+			ss.close();
+		}
+		return list;
+	}
+	
 	
 	public ArrayList getBBS()
 	{

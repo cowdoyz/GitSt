@@ -12,9 +12,9 @@
 <body>
 <form action="login.do" method="post" onSubmit="return check()" name="frm">
 계정 : <input type="text" name="ID" size="15" placeHolder="계정을 입력하세요."/><br/>
-암호 : <input type="password" name="PWD" size="15" placeHolder="암호를 입력하세요."/><br/>
-<input type="submit" value="로그인"/>
-<input type="reset" value="취 소"/>
+암호 : <input type="password" name="PWD" size="15" placeHolder="암호를 입력하세요."/><br/><br/>
+&nbsp;&nbsp;&nbsp;<input type="submit" value="로그인"/>
+&nbsp;<input type="reset" value="취  소"/>
 </form>
 <script type="text/javascript">
 function check(){
@@ -27,7 +27,7 @@ function check(){
 }
 </script>
 <div align="right">
-<a href="template.jsp?BODY=userEntry.jsp">가입하기</a>
+<a href="template.jsp?BODY=userEntry.jsp">■ 가입하기</a>
 </div>
 </body>
 </html>

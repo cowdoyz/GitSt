@@ -7,21 +7,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import DAO.Crud;
+import DTO.BBS;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class bbsdeleteServlet
  */
-@WebServlet("/login.do")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/bbsdelete.do")
+public class bbsdeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginServlet() {
+    public bbsdeleteServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,39 +38,29 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("EUC-KR");
-		String id = request.getParameter("ID");
-		String pwd = request.getParameter("PWD");
+		request.setCharacterEncoding("euc-kr");
+		Integer no = Integer.parseInt(request.getParameter("N"));
+		String btn = request.getParameter("BTN");
 		Crud crud = new Crud();
-		String findPwd = crud.getPwd(id);
-		String result = "";
-		if(findPwd == null)
+		System.out.printf(btn);
+		Integer result = -1;
+		if(btn.equals("삭제"))
 		{
-			result = "NOID";
+			result=crud.bbsdelete(no);
+			response.sendRedirect("template.jsp?BODY=bbsDeleteResult.jsp?R="+result);
 		}
-		else
+		else if(btn.equals("수정"))
 		{
-			if(pwd.equals(findPwd))
-			{
-				result = "OK";
-				HttpSession session = request.getSession();
-				if(id.equals("manager"))
-				{
-					session.setAttribute("MANAGER", id);
-				}
-				else 
-				{
-					session.setAttribute("USERID", id);
-				}
-				
-			}
-			else
-			{
-				result="NOPWD";
-			}
-			response.sendRedirect("template.jsp?BODY=loginResult.jsp?R="+result+"&ID="+id);
+			String title=request.getParameter("TITLE");
+			String content=request.getParameter("CONTENT");
+			BBS bbs = new BBS();
+			bbs.setTitle(title);
+			bbs.setContent(content);
+			bbs.setNo(no);
+			result = crud.bbsUpdate(bbs);
+			response.sendRedirect("template.jsp?BODY=bbsUpdateResult.jsp?R="+result);
+			
 		}
-		
 		
 		
 	}

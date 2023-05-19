@@ -2,8 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper	namespace="mapper.home">
+<insert id="InsertId" parameterType="DTO.User">
+insert into UserInfo values(#{id}, #{pwd}, #{tel})
+</insert>
+<update id="bbsUpdate" parameterType="DTO.BBS">
+update BBS_tbl set title = #{title}, content = #{content} where no = #{no}
+</update>
+<delete id="bbsdelete" parameterType="Integer">
+delete  from BBS_tbl where no = #{no}
+</delete>
+<select id="bbsDetail" parameterType="Integer" resultType="DTO.BBS">
+select no, title, content, id, bbsdate from BBS_tbl where no = #{no}
+</select>
 <select id="getBBS" resultType="DTO.BBS">
-select no, title, id, to_char(bbsdate,'YYYY-MM-DD') from BBS_tbl
+select no, title, id, to_char(bbsdate,'YYYY-MM-DD') as bbsdate from BBS_tbl order by no desc
 </select>
 <select id="getPwd" parameterType="String" resultType="String">
 select pwd from UserInfo where id = #{id}

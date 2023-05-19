@@ -12,8 +12,7 @@
 <body onload="startClock()">
 <script src="Clock/clock.js"></script>
 <header>
- <h2 align="center"><img alt="" src="logo.gif"
- 	id="main_image"></h2>
+ <h2 align="center"><a href="template.jsp"><img alt="" src="imsilogo.png" id="main_image"></a></h2>
 </header>
 <section>
 	<table id="body">
