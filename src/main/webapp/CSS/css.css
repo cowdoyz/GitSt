@@ -32,6 +32,9 @@ table {
 a{
 	text-decoration: none; color: #212529;
 }
+a:hover{
+	color: #3E9BAD;
+}
 
 #content{
 	background-color: #e7e7e7;
