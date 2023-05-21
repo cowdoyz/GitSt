@@ -30,11 +30,11 @@
 					</c:choose>
 				</div>
 				<div id="menu">
-					<a href="template.jsp?BODY=intro.jsp">�� �Ұ�</a><br/>
+					<a href="template.jsp?BODY=intro.jsp">■ 소개</a><br/>
 					<c:if test="${sessionScope.MANAGER != null || sessionScope.USERID != null}">
-					<a href="template.jsp?BODY=bbsInput.jsp">�� �Խñ� �ۼ�</a><br/>
+					<a href="template.jsp?BODY=bbsInput.jsp">■ 게시글 작성</a><br/>
 					</c:if>
-					<a href="bbsList.do">�� �Խñ� ���</a><br/>
+					<a href="bbsList.do">■ 게시글 목록</a><br/>
 				</div>
 			</td>
 			<td id="content">
@@ -44,7 +44,7 @@
 	</table>
 </section>
 <footer>
-	<h3 align="center">CopyRight 2022. MyHome. <span id="clock"></span></h3>
+	<h3 align="center">CopyRight 2023. MyHome. <span id="clock"></span></h3>
 </footer>
 </body>
 </html>
