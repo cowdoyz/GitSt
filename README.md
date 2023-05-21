@@ -28,5 +28,10 @@
 
 ![image](https://github.com/cowdoyz/GitSt/assets/75826154/117e7f2e-6042-47ae-8ffa-1128b1710442)
 
+로그인을 하면 로그아웃과 게시글 작성이 활성화 됨
+
+![image](https://github.com/cowdoyz/GitSt/assets/75826154/e67597e6-dd0a-4d22-bf58-fe7b55bffaa8)
+
+
 footer CopyRight 에 현재 날짜 요일 시간을 나타내는 것을 Javascript 구현
 
