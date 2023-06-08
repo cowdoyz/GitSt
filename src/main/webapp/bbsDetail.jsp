@@ -21,8 +21,7 @@
 		<tr><th>작성자</th><td>${BBS.id }</td></tr>
 		<tr><th>제 목</th><td><input type="text" value="${BBS.title }" name ="TITLE" /></td></tr>
 		<tr><th>작성일</th><td>${BBS.bbsdate }</td></tr>
-		<tr><th>내 용</th><td><textarea rows="5"  
-			cols="40" name ="CONTENT">${BBS.content }</textarea></td></tr>			
+		<tr><th>내 용</th><td><textarea rows="5" cols="40" name ="CONTENT">${BBS.content }</textarea></td></tr>			
 		<tr><td colspan="2" align="right"><c:if test="${sessionScope.MANAGER != null || sessionScope.USERID != null}">						
 		<input type="submit" value="수정" name="BTN">    <input type="submit" value="삭제" name="BTN"></c:if></td>
 		</tr>	
