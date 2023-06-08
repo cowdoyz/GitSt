@@ -12,18 +12,20 @@
 <form action="bbsdelete.do?N=${BBS.no }" method="post">
 <div align="center">
 <c:if test="${empty BBS }">
-	<h3>�������� �ʴ� �Խñ��Դϴ�.</h3>
+	<h3>존재하지 않는 게시글입니다.</h3>
 </c:if>
 <c:if test="${ ! empty BBS }">
-	<h3>�Խñ� �󼼺���</h3>
+	<h3>게시글 상세보기</h3>
 	<table width="100%">
-		<tr><th>�۹�ȣ</th><td>${BBS.no }</td></tr>
-		<tr><th>�ۼ���</th><td>${BBS.id }</td></tr>
-		<tr><th>�� ��</th><td><input type="text" value="${BBS.title }" name ="TITLE" /></td></tr>
-		<tr><th>�ۼ���</th><td>${BBS.bbsdate }</td></tr>
-		<tr><th>�� ��</th><td><textarea rows="5"  
-			cols="40" name ="CONTENT">${BBS.content }</textarea></td></tr>
-		<tr><td colspan="2" align="right"><input type="submit" value="����" name="BTN">    <input type="submit" value="����" name="BTN"></tr>	
+		<tr><th>글번호</th><td>${BBS.no }</td></tr>
+		<tr><th>작성자</th><td>${BBS.id }</td></tr>
+		<tr><th>제 목</th><td><input type="text" value="${BBS.title }" name ="TITLE" /></td></tr>
+		<tr><th>작성일</th><td>${BBS.bbsdate }</td></tr>
+		<tr><th>내 용</th><td><textarea rows="5"  
+			cols="40" name ="CONTENT">${BBS.content }</textarea></td></tr>			
+		<tr><td colspan="2" align="right"><c:if test="${sessionScope.MANAGER != null || sessionScope.USERID != null}">						
+		<input type="submit" value="수정" name="BTN">    <input type="submit" value="삭제" name="BTN"></c:if></td>
+		</tr>	
 	</table>
 </c:if>
 </div>
